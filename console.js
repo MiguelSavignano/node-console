@@ -8,4 +8,9 @@ var replServer = repl.start({
 
 var Developer = require("./models/developer")
 
-replServer.context.Developer = Developer;
+var normalizedPath = require("path").join(__dirname, "models");
+
+require("fs").readdirSync(normalizedPath).forEach(function(file_name) {
+  var name = file_name.replace('.js','')
+  replServer.context[name] = require("./models/" + name);
+});
