@@ -1,12 +1,14 @@
-var all = [
-  {
-    name:"miguel",
-    github:"https://github.com/MiguelSavignano"
-  },
-  {
-    name:"sergio",
-    github:"https://github.com/sergioperez"
-  }
+var mongoose = require( 'mongoose' );
+_            = require('lodash')
 
-]
-exports.all = all
+var DeveloperShema = new mongoose.Schema({
+  name:  {type: String},
+  github: {type: String},
+  score: {type: Number}
+});
+
+// DeveloperShema.statics.best_developers = function(objects, callback) {
+// }
+var Developer = mongoose.model( 'Developer', DeveloperShema );
+
+module.exports = Developer;
