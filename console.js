@@ -1,13 +1,10 @@
 var repl = require("repl");
-
+var utils = require("./utils");
 var config     = require('./config')
 
 var replServer = repl.start({
   prompt: "node > "
 });
 
-var normalizedPath = require("path").join(__dirname, "models");
-require("fs").readdirSync(normalizedPath).forEach(function(file_name) {
-  var name = file_name.replace('.js','')
-  replServer.context[name] = require("./models/" + name);
-});
+utils.loadAllModels(replServer, {folder:"models"})
+replServer.context._ = require("lodash");
