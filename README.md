@@ -13,7 +13,7 @@ replServer.context._ = require("lodash");
 replServer.context.Product = require("./models/product");
 replServer.context.json_data = require("data.json");
 ```
-You can use any node functon and yours models methods;
+You can use any node function and yours models methods;
 ```sh
 node >  [1,2,3].map( (n) => n*2 )
 node >  _.flatten([1, [2, [3, [4]], 5]]);
