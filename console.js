@@ -11,21 +11,6 @@ var replServer = repl.start({
 });
 
 utils.loadAllModels(replServer, {folder:"models"})
+utils.loadSuperCallBack(replServer)
+
 replServer.context._ = require("lodash");
-
-// SuperCallback save the arguments in global variabe to know the results of mongoose querys
-
-var $r = {
-  data:{},
-  results: function() {return this.data['1']},
-  error:  function() {return this.data['0']}
-}
-var cb = function(){
-  this.data = arguments
-}
-cb = cb.bind($r)
-replServer.context["$r"] = $r
-replServer.context["cb"] = cb
-
-//example
-// Developer.first(cb)

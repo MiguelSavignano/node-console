@@ -9,3 +9,24 @@ exports.loadAllModels = function(replServer, options){
     replServer.context[class_name] = require("./models/" + name);
   });
 }
+
+
+// SuperCallback save the arguments in global variabe to know the results of mongoose querys
+exports.loadSuperCallBack = function(replServer){
+  var $r = {
+    data:{},
+    results: function() {return this.data['1']},
+    error:  function() {return this.data['0']}
+  }
+  var cb = function(){
+    this.data = arguments
+  }
+  cb = cb.bind($r)
+  replServer.context["$r"] = $r
+  replServer.context["cb"] = cb
+}
+
+
+//example
+// Developer.first(cb)
+// $r will contain the values of callback
