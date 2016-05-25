@@ -28,5 +28,5 @@ exports.loadSuperCallBack = function(replServer){
 
 
 //example
-// Developer.first(cb)
+// Product.first(cb)
 // $r will contain the values of callback
