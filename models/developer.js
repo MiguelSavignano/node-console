@@ -7,8 +7,9 @@ var DeveloperShema = new mongoose.Schema({
   score: {type: Number}
 });
 
-// DeveloperShema.statics.best_developers = function(objects, callback) {
-// }
+DeveloperShema.statics.first = function(callback) {
+  Developer.findOne(callback)
+}
 var Developer = mongoose.model( 'Developer', DeveloperShema );
 
 module.exports = Developer;
