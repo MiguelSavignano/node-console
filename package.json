@@ -1,7 +1,7 @@
 {
   "name": "node-console",
   "version": "1.0.0",
-  "description": "node console to siulate the rails console, this project it's you like the rails cosole. let's play with javascritp in the console. You can import all models or others modules and try it typing in your console using your database it's amazing",
+  "description": "node console like rails console",
   "main": "console.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
