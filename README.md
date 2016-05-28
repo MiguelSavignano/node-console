@@ -9,17 +9,19 @@ Any module in the folder models it's accesible in the node console the variable 
 To add more modules, models or json data
 
 ```javascript
-replServer.context._ = require("lodash");
+replServer.context.lodash = require("lodash");
 replServer.context.Product = require("./models/product");
 replServer.context.json_data = require("data.json");
 ```
 You can use any node function and yours models methods;
 ```sh
 node >  [1,2,3].map( (n) => n*2 )
-node >  _.flatten([1, [2, [3, [4]], 5]]);
+[2,4,6]
+node >  lodash.flattenDeep([1, [2, [3, [4]], 5]]);
+[1, 2, 3, 4, 5]
 ```
 
-utils.loadSuperCallBack(replServer) set $r and cb in the node console, for help save the results of callbacks in the object $r, example using it
+utils.loadSuperCallBack(replServer) set global variable $r and cb in the node console, for help save the results of callbacks in the object $r, example using it
 
 ```sh
 node >  Product.findOne(cb)

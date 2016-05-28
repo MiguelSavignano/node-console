@@ -13,4 +13,4 @@ var replServer = repl.start({
 utils.loadAllModels(replServer, {folder:"models"})
 utils.loadSuperCallBack(replServer)
 
-replServer.context._ = require("lodash");
+replServer.context.lodash = require("lodash"); // in nodereplServer underscore i'ts a reserved variable
